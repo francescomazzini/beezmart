@@ -5,7 +5,7 @@ const LoginPage = ({navigation}:{navigation:any}) : JSX.Element => {
   
     return (
       <View>
-        <Text>AOO</Text>
+        <Text style={{color: "black"}}>AOO</Text>
       </View>
     );
   }

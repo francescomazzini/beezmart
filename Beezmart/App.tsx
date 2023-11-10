@@ -33,24 +33,12 @@ function App(): JSX.Element {
 
   const {log} = useUser();
 
-
-  useEffect(
-    () => {
-      
-      log("antoniobruno82+test3@gmail.com","password1")
-      .then(e => console.log("ok"))
-      .catch(err => console.log(err))
-      
-    }, []
-  )
-
-  
-const Stack = createNativeStackNavigator();
+  const Stack = createNativeStackNavigator();
 
   
   return (
     <NavigationContainer>
-      <View>
+      {/* <View> */}
         <Stack.Navigator>
             <Stack.Screen
               name="LoginPage"
@@ -58,7 +46,7 @@ const Stack = createNativeStackNavigator();
               options={{ headerShown: false }}
             />
         </Stack.Navigator> 
-      </View>
+      {/* </View> */}
     </NavigationContainer>
   );
 }
