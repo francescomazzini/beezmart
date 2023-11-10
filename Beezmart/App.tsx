@@ -5,7 +5,7 @@
  * @format
  */
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import type {PropsWithChildren} from 'react';
 import {
   SafeAreaView,
@@ -24,13 +24,42 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import { useUser } from './app/core/useUser';
+import {NavigationContainer} from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import LoginPage from './app/UI/LoginPage';
 
 function App(): JSX.Element {
 
+  const {log} = useUser();
+
+
+  useEffect(
+    () => {
+      
+      log("antoniobruno82+test3@gmail.com","password1")
+      .then(e => console.log("ok"))
+      .catch(err => console.log(err))
+      
+    }, []
+  )
+
+  
+const Stack = createNativeStackNavigator();
+
+  
   return (
-    <View>
-          <Text> AOOO </Text>
-    </View>
+    <NavigationContainer>
+      <View>
+        <Stack.Navigator>
+            <Stack.Screen
+              name="LoginPage"
+              component={LoginPage}
+              options={{ headerShown: false }}
+            />
+        </Stack.Navigator> 
+      </View>
+    </NavigationContainer>
   );
 }
 
