@@ -1,4 +1,4 @@
-import { Text, View } from "react-native";
+import { Image, Text, View } from "react-native";
 import { InputText } from "./components/Inputs";
 
 const LoginPage = ({ navigation }: { navigation: any }): JSX.Element => {
@@ -6,17 +6,22 @@ const LoginPage = ({ navigation }: { navigation: any }): JSX.Element => {
     <View style={{ backgroundColor: "#27241f" }}>
       <View
         style={{
-          backgroundColor: "#27241f",
           height: "40%",
+          justifyContent: "center",
+          alignItems: "center",
+          marginTop: 80,
         }}
-      ></View>
+      >
+        <Image
+          style={{ width: 130, height: 130 }}
+          source={require("./assets/images/Logo_BEEZ_Bianco.png")}
+        />
+      </View>
       <View
         style={{
           height: "60%",
-          justifyContent: "center",
           gap: 20,
           marginHorizontal: 66,
-          backgroundColor: "#27241f",
         }}
       >
         <InputText label="Email" />

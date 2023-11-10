@@ -14,7 +14,8 @@ const InputText = ({ label }: { label: string }) => {
         borderTopRightRadius: 50,
         borderTopLeftRadius: 50,
         borderWidth: 1,
-        borderColor: "gray",
+        borderColor: "ffffff",
+        backgroundColor: "#0d0d0d",
       }}
       label={label}
       value={text}
