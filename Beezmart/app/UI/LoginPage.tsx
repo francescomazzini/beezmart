@@ -27,7 +27,7 @@ const LoginPage = ({ navigation }: { navigation: any }): JSX.Element => {
       <View
         style={{
           height: "30%",
-          justifyContent: "center",
+          justifyContent: "flex-end",
           alignItems: "center",
         }}
       >
@@ -41,6 +41,7 @@ const LoginPage = ({ navigation }: { navigation: any }): JSX.Element => {
           height: "50%",
           gap: 20,
           marginHorizontal: 66,
+          justifyContent: "center",
         }}
       >
         <InputText label="Email" text={email} setText={setEmail} />
@@ -49,7 +50,7 @@ const LoginPage = ({ navigation }: { navigation: any }): JSX.Element => {
       <View
         style={{
           height: "20%",
-          justifyContent: "center",
+          marginHorizontal: 120,
         }}
       >
         <InputButton onPress={() => login()}/>

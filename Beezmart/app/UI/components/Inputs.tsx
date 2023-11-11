@@ -26,12 +26,19 @@ const InputText = ({ label, text, setText }: { label: string, text : string, set
 
 const InputButton = ({onPress}:{onPress:any}) => (
   <Button
-    style={{ backgroundColor: "white" }}
-    icon="camera"
+    style={{
+      backgroundColor: "#fbc011",
+      height: 52,
+      justifyContent: "center",
+      borderBottomLeftRadius: 50,
+      borderBottomRightRadius: 50,
+      borderTopRightRadius: 50,
+      borderTopLeftRadius: 50,
+    }}
     mode="contained"
     onPress={onPress}
   >
-    Press me
+    Login
   </Button>
 );
 
