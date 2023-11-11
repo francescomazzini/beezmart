@@ -1,9 +1,16 @@
 import * as React from "react";
 import { Text, TouchableOpacity, View } from "react-native";
-import { Button, TextInput } from "react-native-paper";
+import { Button, Icon, MD3Colors, TextInput } from "react-native-paper";
 
-const InputText = ({ label, text, setText }: { label: string, text : string, setText: any }) => {
-
+const InputText = ({
+  label,
+  text,
+  setText,
+}: {
+  label: string;
+  text: string;
+  setText: any;
+}) => {
   return (
     <TextInput
       style={{
@@ -24,7 +31,7 @@ const InputText = ({ label, text, setText }: { label: string, text : string, set
   );
 };
 
-const InputButton = ({onPress}:{onPress:any}) => (
+const InputButton = ({ onPress }: { onPress: any }) => (
   <Button
     style={{
       backgroundColor: "#fbc011",
@@ -42,4 +49,6 @@ const InputButton = ({onPress}:{onPress:any}) => (
   </Button>
 );
 
-export { InputText, InputButton };
+const IconFoto = () => <Icon source="" color={MD3Colors.error50} size={20} />;
+
+export { InputText, InputButton, IconFoto };
