@@ -1,5 +1,5 @@
 import { Image, Text, View } from "react-native";
-import { InputText } from "./components/Inputs";
+import { InputText, InputButton } from "./components/Inputs";
 import { AuthContext } from "../core/useUser";
 import React, { useContext, useEffect, useState } from 'react';
 import { StackActions } from "@react-navigation/native";
@@ -26,10 +26,9 @@ const LoginPage = ({ navigation }: { navigation: any }): JSX.Element => {
     <View style={{ backgroundColor: "#27241f" }}>
       <View
         style={{
-          height: "40%",
+          height: "30%",
           justifyContent: "center",
           alignItems: "center",
-          marginTop: 80,
         }}
       >
         <Image
@@ -39,13 +38,21 @@ const LoginPage = ({ navigation }: { navigation: any }): JSX.Element => {
       </View>
       <View
         style={{
-          height: "60%",
+          height: "50%",
           gap: 20,
           marginHorizontal: 66,
         }}
       >
         <InputText label="Email" text={email} setText={setEmail} />
         <InputText label="Password" text={password} setText={setPassword} />
+      </View>
+      <View
+        style={{
+          height: "20%",
+          justifyContent: "center",
+        }}
+      >
+        <InputButton onPress={() => login()}/>
       </View>
     </View>
   );

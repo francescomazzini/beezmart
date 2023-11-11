@@ -32,8 +32,6 @@ import { BottomBar } from './app/UI/fragments/Bars';
 
 const InnerApp = ({route}): JSX.Element => {
 
-  const user = route.params.user;
-
   return(
         <BottomBar />
   )
