@@ -1,5 +1,6 @@
 import * as React from "react";
-import { TextInput } from "react-native-paper";
+import { Text, TouchableOpacity, View } from "react-native";
+import { Button, TextInput } from "react-native-paper";
 
 const InputText = ({ label }: { label: string }) => {
   const [text, setText] = React.useState("");
@@ -24,4 +25,15 @@ const InputText = ({ label }: { label: string }) => {
   );
 };
 
-export { InputText };
+const InputButton = () => (
+  <Button
+    style={{ backgroundColor: "white" }}
+    icon="camera"
+    mode="contained"
+    onPress={() => console.log("Pressed")}
+  >
+    Press me
+  </Button>
+);
+
+export { InputText, InputButton };
