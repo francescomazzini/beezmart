@@ -25,15 +25,15 @@ const HomePage = ({navigation}:{navigation:any}) : JSX.Element => {
           await getFreeMoney(auth.user.access_token, auth.user.wallet.address);
           console.log('100 bucks added');
   
+          const moneyResponse = await getMoney(auth.user.access_token);
+          setMoney(moneyResponse.balance);
+  
+          const transactionsResponse = await getTransactions(auth.user.access_token);
+          console.log(transactionsResponse);
+          setTransactions(transactionsResponse);
         } catch (error) {
           console.log(error.message);
         }
-        const moneyResponse = await getMoney(auth.user.access_token);
-        setMoney(moneyResponse.balance);
-
-        const transactionsResponse = await getTransactions(auth.user.access_token);
-        console.log(transactionsResponse);
-        setTransactions(transactionsResponse);
       };
   
       // Call fetchData initially
