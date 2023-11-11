@@ -50,7 +50,7 @@ const LoginPage = ({ navigation }: { navigation: any }): JSX.Element => {
           marginHorizontal: 120,
         }}
       >
-        <InputButton onPress={() => login()} />
+        <InputButton onPress={() => login()} label={"Login"} />
       </View>
     </View>
   );
