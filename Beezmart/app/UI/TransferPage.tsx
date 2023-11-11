@@ -133,6 +133,12 @@ const TransferPage = ({ navigation }: { navigation: any }): JSX.Element => {
     setImageSource6(newImageSource6);
   };
 
+  const auth = useContext(AuthContext);
+
+  const {makeTransaction} = useWallet();
+
+  const [receiver, setReceiver] = useState<string>(undefined);
+
   return (
     <View style={{ height: "100%", backgroundColor: "#27241f", width: "100%", alignItems: "center" }}>
       <View
@@ -185,8 +191,13 @@ const TransferPage = ({ navigation }: { navigation: any }): JSX.Element => {
         <Divider />
       </View>
       <View style={{ marginLeft: 20, marginRight: 20, gap : 30, width: "80%" }}>
-        <InputText label="Receiver address" text="" setText={undefined} />
-        <InputButton onPress={undefined} label={"Transfer"} />
+        <InputText label="Receiver address" text={receiver} setText={setReceiver} />
+        <InputButton onPress={() => {
+          if(receiver && counter !== 0)
+            makeTransaction(auth.user.access_token, receiver, counter)
+            .then(e => console.log(e))
+            .catch(e => console.log(e.message))
+        }} label={"Transfer"} />
       </View>
       {/* <Text>{counter}</Text> */}
     </View>
