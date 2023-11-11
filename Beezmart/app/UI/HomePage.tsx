@@ -1,4 +1,4 @@
-import { Image, Text, View } from "react-native";
+import { Image, ScrollView, Text, View } from "react-native";
 import { AuthContext } from "../core/useUser";
 import { useContext, useEffect, useState } from "react";
 import { useWallet } from "../core/useWallet";
@@ -6,6 +6,7 @@ import React from "react";
 import { Divider } from "react-native-paper";
 
 import { IconFoto } from "./components/Inputs";
+import { TransactionCard } from "./components/Transactions";
 
 const HomePage = ({navigation}:{navigation:any}) : JSX.Element => {
 
@@ -17,7 +18,7 @@ const HomePage = ({navigation}:{navigation:any}) : JSX.Element => {
     
     useEffect(() => {
 
-        getFreeMoney(auth.user.access_token, auth.user.address)
+        getFreeMoney(auth.user.access_token, auth.user.wallet.address)
         .then(() => console.log("100 bucks added"))
         .catch((err) => console.log(err.message))
 
@@ -54,7 +55,7 @@ const HomePage = ({navigation}:{navigation:any}) : JSX.Element => {
           marginLeft: 20,
         }}
       >
-        <Text>BZT</Text>
+        <Text>BZX</Text>
         <Text style={{ fontWeight: "bold", fontSize: 25 }}> {money}</Text>
       </View>
 
@@ -63,6 +64,16 @@ const HomePage = ({navigation}:{navigation:any}) : JSX.Element => {
           Latest Transactions
         </Text>
         <Divider />
+        <ScrollView style={{paddingLeft: 20, paddingRight: 20, paddingTop: 20}}>
+
+          <TransactionCard />
+          <TransactionCard />
+          <TransactionCard />
+          <TransactionCard />
+          <View style= {{height: 90}}>
+
+          </View>
+        </ScrollView>
       </View>
     </View>
   );

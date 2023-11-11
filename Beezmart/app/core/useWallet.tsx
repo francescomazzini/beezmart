@@ -32,6 +32,9 @@ export function useWallet() {
 
 
     async function getFreeMoney (bearerToken, address_receiver) {
+
+      console.log(address_receiver)
+
       const apiKey = `Token ${bearerToken}`;
 
       let body = {

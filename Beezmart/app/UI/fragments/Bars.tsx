@@ -3,6 +3,7 @@ import HomePage from '../HomePage';
 import { View } from 'react-native';
 import { CentralTabButton, TabButton } from '../components/Buttons';
 import TransferPage from '../TransferPage';
+import AssetsPage from '../AssetsPage';
 
 const Tab = createBottomTabNavigator();
 
