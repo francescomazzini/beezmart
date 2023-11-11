@@ -31,7 +31,7 @@ const InputText = ({
   );
 };
 
-const InputButton = ({ onPress }: { onPress: any }) => (
+const InputButton = ({ onPress, label }: { onPress: any; label: string }) => (
   <Button
     style={{
       backgroundColor: "#fbc011",
@@ -45,7 +45,8 @@ const InputButton = ({ onPress }: { onPress: any }) => (
     mode="contained"
     onPress={onPress}
   >
-    Login
+    {" "}
+    {label}
   </Button>
 );
 
