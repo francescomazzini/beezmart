@@ -37,10 +37,10 @@ const AssetUploadPage = () : JSX.Element => {
     
     useEffect(() => {
 
-        if (response)
-            getCatalogized("https://thumbs.dreamstime.com/z/footbridge-sea-beach-meditation-journey-calm-hormone-sunset-sea-yoga-footbridge-sea-beach-meditation-journey-calm-hormone-128381503.jpg")
+        if (response){
+            getCatalogized(response.assets[0].base64)
             .then((resp) => setCatalogized(resp.choices[0].message.content))     
-        
+        }
     }, [response])
 
 
@@ -134,9 +134,13 @@ const AssetUploadPage = () : JSX.Element => {
             <View style={{width: "100%", alignItems: "center"}}>
                 <Button mode="contained" onPress={
                     () => {
+                        
+                        console.log("  AAAAAAAAA" + JSON.stringify(response.data))
+
                         if(response && idNFC && amount && catalogized) {
-                            addMyAsset(auth.user.access_token, idNFC, amount, catalogized)
+                            addMyAsset(auth.user.access_token, idNFC, amount, response.data)
                             .then(e => console.log(e))
+                            .catch(e => console.log(e.message))
                         }
                     }
                 }>
@@ -180,7 +184,7 @@ const styles = StyleSheet.create({
       options: {
         saveToPhotos: true,
         mediaType: 'photo',
-        includeBase64: false,
+        includeBase64: true,
         // includeExtra,
       },
     },

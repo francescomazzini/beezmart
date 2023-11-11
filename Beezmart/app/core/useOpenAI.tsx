@@ -8,20 +8,20 @@ export function useOpenAI () {
 
     async function getCatalogized(image) {
 
-        const fs = require('fs').promises;
+        // const fs = require('fs').promises;
 
-        function encodeImage(imagePath) {
-            // Synchronously read the file and return a base64-encoded string
-            const imageBuffer = fs.readFileSync(imagePath);
-            return imageBuffer.toString('base64');
-        }
+        // function encodeImage(imagePath) {
+        //     // Synchronously read the file and return a base64-encoded string
+        //     const imageBuffer = fs.readFileSync(imagePath);
+        //     return imageBuffer.toString('base64');
+        // }
 
         const headers = {
             "Content-Type": "application/json",
             "Authorization": `Bearer ${apiKey}`
         };
 
-        const base64_image = encodeImage(image)
+        const base64_image = image;
 
 
         const payload = {
