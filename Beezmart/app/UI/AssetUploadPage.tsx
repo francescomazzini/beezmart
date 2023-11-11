@@ -36,7 +36,6 @@ const AssetUploadPage = () : JSX.Element => {
                 );
             })}
             </View>
-            {/* <DemoResponse>{response}</DemoResponse> */}
 
             {response?.assets &&
             response?.assets.map(({uri}: {uri: string}) => (
