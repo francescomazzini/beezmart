@@ -8,7 +8,7 @@ const Tab = createBottomTabNavigator();
 
 const BottomBar = () => {
     return (
-      <Tab.Navigator initialRouteName='HomePage' tabBar={props => <MyTabBar {...props} />}>
+      <Tab.Navigator initialRouteName='Home' tabBar={props => <MyTabBar {...props} />}>
         <Tab.Screen name="Transfer" component={TransferPage} options={{ 
                 headerShown: false, 
                 tabBarShowLabel: false, 
