@@ -6,7 +6,7 @@ const Tab = createBottomTabNavigator();
 const BottomBar = () => {
     return (
       <Tab.Navigator initialRouteName='HomePage' /*tabBar={props => <MyTabBar {...props} />}*/>
-        <Tab.Screen name="Settings" component={HomePage} options={{ 
+        <Tab.Screen name="Home" component={HomePage} options={{ 
               headerShown: false, 
               tabBarShowLabel: false, 
             //   tabBarIcon: (color) => (
