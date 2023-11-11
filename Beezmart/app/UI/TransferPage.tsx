@@ -77,7 +77,7 @@ const TransferPage = ({ navigation }: { navigation: any }): JSX.Element => {
         </View>
         <Divider />
       </View>
-      <View style={{}}>
+      <View style={{ marginLeft: 20, marginRight: 20 }}>
         <InputText label="Recieverer address" text="" setText={undefined} />
         <InputButton onPress={undefined} label={"Transfer"} />
       </View>
