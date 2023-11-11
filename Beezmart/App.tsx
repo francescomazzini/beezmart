@@ -24,14 +24,24 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-import { useUser } from './app/core/useUser';
+import { AuthContext, useUser } from './app/core/useUser';
 import {NavigationContainer} from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import LoginPage from './app/UI/LoginPage';
+import { BottomBar } from './app/UI/fragments/Bars';
+
+const InnerApp = ({route}): JSX.Element => {
+
+  const user = route.params.user;
+
+  return(
+        <BottomBar />
+  )
+}
 
 function App(): JSX.Element {
 
-  const {log} = useUser();
+  const auth = useUser();
 
   const Stack = createNativeStackNavigator();
 
@@ -39,13 +49,20 @@ function App(): JSX.Element {
   return (
     <NavigationContainer>
       {/* <View> */}
-        <Stack.Navigator>
-            <Stack.Screen
-              name="LoginPage"
-              component={LoginPage}
-              options={{ headerShown: false }}
-            />
-        </Stack.Navigator> 
+        <AuthContext.Provider value={auth}>
+          <Stack.Navigator>
+              <Stack.Screen
+                name="LoginPage"
+                component={LoginPage}
+                options={{ headerShown: false }}
+              />
+              <Stack.Screen
+                name="InnerApp"
+                component={InnerApp}
+                options={{ headerShown: false }}
+              />
+          </Stack.Navigator> 
+        </AuthContext.Provider>
       {/* </View> */}
     </NavigationContainer>
   );

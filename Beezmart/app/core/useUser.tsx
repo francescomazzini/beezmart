@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, createContext } from 'react';
 import axios from "axios";
 import * as React from "react";
 
@@ -36,8 +36,11 @@ export function useUser() {
 
   
 
-  return {log};
+  return {user, log};
 
     
 }
 
+
+
+export const AuthContext = createContext(null);
