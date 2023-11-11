@@ -11,9 +11,6 @@ const BottomBar = () => {
         <Tab.Screen name="Home" component={HomePage} options={{ 
               headerShown: false, 
               tabBarShowLabel: false, 
-            //   tabBarIcon: (color) => (
-            //       <Icon name="settings" color={color} size={30} />
-            //   )
           }}/>
       </Tab.Navigator>
     );
