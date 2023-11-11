@@ -30,6 +30,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import LoginPage from "./app/UI/LoginPage";
 import { BottomBar } from "./app/UI/fragments/Bars";
 import AssetUploadPage from "./app/UI/AssetUploadPage";
+import UploadWorked from "./app/UI/UploadWorked";
 
 const InnerApp = ({ route }): JSX.Element => {
   return <BottomBar />;
@@ -58,6 +59,11 @@ function App(): JSX.Element {
           <Stack.Screen
             name="AssetUpload"
             component={AssetUploadPage}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="UploadWorked"
+            component={UploadWorked}
             options={{ headerShown: false }}
           />
         </Stack.Navigator>
