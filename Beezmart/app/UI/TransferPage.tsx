@@ -1,4 +1,4 @@
-import { Image, Text, View } from "react-native";
+import { Image, ScrollView, Text, View } from "react-native";
 import { AuthContext } from "../core/useUser";
 import { useContext, useEffect } from "react";
 import { useWallet } from "../core/useWallet";
@@ -11,6 +11,7 @@ const TransferPage = ({navigation}:{navigation:any}) : JSX.Element => {
     
   return (
     <View style={{ height: "100%", backgroundColor: "#27241f" }}>
+      
     </View>
   );
 };

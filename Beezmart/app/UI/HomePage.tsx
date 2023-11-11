@@ -19,21 +19,32 @@ const HomePage = ({navigation}:{navigation:any}) : JSX.Element => {
     const [transactions, setTransactions] = useState([]);
     
     useEffect(() => {
-
-        getFreeMoney(auth.user.access_token, auth.user.wallet.address)
-        .then(() => console.log("100 bucks added"))
-        .catch((err) => console.log(err.message))
-
-        getMoney(auth.user.access_token)
-        .then((resp) => setMoney(resp.balance))
-
-        getTransactions(auth.user.access_token)
-        .then((resp) => {
-          console.log(resp)
-          setTransactions(resp)})
-
-    }, []) 
-
+      const fetchData = async () => {
+        try {
+          // Perform your operations here
+          await getFreeMoney(auth.user.access_token, auth.user.wallet.address);
+          console.log('100 bucks added');
+  
+          const moneyResponse = await getMoney(auth.user.access_token);
+          setMoney(moneyResponse.balance);
+  
+          const transactionsResponse = await getTransactions(auth.user.access_token);
+          console.log(transactionsResponse);
+          setTransactions(transactionsResponse);
+        } catch (error) {
+          console.log(error.message);
+        }
+      };
+  
+      // Call fetchData initially
+      fetchData();
+  
+      // Set up a timer to call fetchData every 5 seconds
+      const timerId = setInterval(fetchData, 5000);
+  
+      // Clean up the timer when the component unmounts or when the next effect runs
+      return () => clearInterval(timerId);
+    }, [auth.user.access_token, auth.user.wallet.address])
     
   return (
     <View style={{ height: "100%", backgroundColor: "#27241f" }}>
