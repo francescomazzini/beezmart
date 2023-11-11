@@ -1,8 +1,9 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomePage from '../HomePage';
 import { View } from 'react-native';
-import { CentralTabButton, TabButton } from '../components/Buttons';
+import { CentralTabButton, TabButton, TabButtonAssets, TabButtonTransfer } from '../components/Buttons';
 import TransferPage from '../TransferPage';
+import AssetsPage from '../AssetsPage';
 
 const Tab = createBottomTabNavigator();
 
@@ -17,7 +18,7 @@ const BottomBar = () => {
               headerShown: false, 
               tabBarShowLabel: false, 
           }}/>
-        <Tab.Screen name="Transfer2" component={TransferPage} options={{ 
+        <Tab.Screen name="Assets" component={AssetsPage} options={{ 
                 headerShown: false, 
                 tabBarShowLabel: false, 
             }}/>
@@ -84,9 +85,11 @@ const BottomBar = () => {
         
                 return label === "Home" ? (
                     <CentralTabButton key={index} isFocused = {isFocused} options = {options} onPress = {onPress} onLongPress = {onLongPress} />
+                ) : ( label === "Assets" ? (
+                    <TabButtonAssets key={index} isFocused = {isFocused} options = {options} onPress = {onPress} onLongPress = {onLongPress} />
                 ) : (
-                    <TabButton key={index} isFocused = {isFocused} options = {options} onPress = {onPress} onLongPress = {onLongPress} />
-                );
+                    <TabButtonTransfer key={index} isFocused = {isFocused} options = {options} onPress = {onPress} onLongPress = {onLongPress} />
+                ));
                 })
             }
         </View>   
