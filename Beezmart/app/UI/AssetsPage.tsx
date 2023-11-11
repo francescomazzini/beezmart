@@ -1,4 +1,4 @@
-import { Image, ScrollView, Text, View } from "react-native";
+import { Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
 import { AuthContext } from "../core/useUser";
 import { useContext, useEffect, useState } from "react";
 import { useWallet } from "../core/useWallet";
@@ -25,6 +25,9 @@ const AssetsPage = ({navigation}:{navigation:any}) : JSX.Element => {
     
   return (
     <View style={{ height: "100%", backgroundColor: "#27241f" }}>
+        <TouchableOpacity style={{position: "absolute", zIndex: 2, top: 50, right: 20}} onPress={() => navigation.navigate('AssetUpload')}>
+            <Image source={require("./assets/images/Pulsante_Plus.png")} style={{right: 20, height: 60, width: 60}}/>
+        </TouchableOpacity>
         <Text style={{ color: "#fbc011", fontSize: 25, marginLeft: 20, marginBottom: 10, marginTop: 50}}>
           Assets
         </Text>

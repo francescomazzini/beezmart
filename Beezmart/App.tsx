@@ -29,6 +29,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import LoginPage from "./app/UI/LoginPage";
 import { BottomBar } from "./app/UI/fragments/Bars";
+import AssetUploadPage from "./app/UI/AssetUploadPage";
 
 const InnerApp = ({ route }): JSX.Element => {
   return <BottomBar />;
@@ -52,6 +53,11 @@ function App(): JSX.Element {
           <Stack.Screen
             name="InnerApp"
             component={InnerApp}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="AssetUpload"
+            component={AssetUploadPage}
             options={{ headerShown: false }}
           />
         </Stack.Navigator>
