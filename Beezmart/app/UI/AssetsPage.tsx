@@ -21,15 +21,28 @@ const AssetsPage = ({navigation}:{navigation:any}) : JSX.Element => {
     const {getCatalogized} = useOpenAI();
 
     useEffect(() => {
+        // Define a function to fetch assets
+    const fetchAssets = async () => {
+        try {
+        // Call the getAssets function
+        const resp = await getAssets(auth.user.access_token);
+        console.log(resp);
+        setAssets(resp);
+        } catch (error) {
+        console.error('Error fetching assets:', error);
+        }
+    };
 
-        getAssets(auth.user.access_token)
-        .then((resp) => {console.log(resp); setAssets(resp)})
+    // Call the fetchAssets function immediately when the component mounts
+    fetchAssets();
 
-        getCatalogized("https://thumbs.dreamstime.com/z/footbridge-sea-beach-meditation-journey-calm-hormone-sunset-sea-yoga-footbridge-sea-beach-meditation-journey-calm-hormone-128381503.jpg")
-        .then((resp) => console.log("Catalogized is " + JSON.stringify(resp.choices[0].message.content)))
-        
-    }, [])
-    
+    // Set up an interval to fetch assets every five seconds
+    const intervalId = setInterval(fetchAssets, 5000);
+
+    // Clean up the interval when the component unmounts
+    return () => clearInterval(intervalId);
+    }, []);
+
   return (
     <View style={{ height: "100%", backgroundColor: "#27241f" }}>
         <TouchableOpacity style={{position: "absolute", zIndex: 2, top: 50, right: 20}} onPress={() => navigation.navigate('AssetUpload')}>

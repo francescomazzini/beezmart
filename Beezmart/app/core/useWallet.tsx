@@ -111,7 +111,39 @@ export function useWallet() {
         });
     }
 
-  return { getMoney, getTransactions, getFreeMoney, getAssets };
+    async function addMyAsset (bearerToken, name, amount, data) {
+
+      const apiKey = `Token ${bearerToken}`;
+
+      let body = {
+        name : name,
+        amount : amount,
+        data : data
+      };
+  
+      const config = {
+        method: 'post',
+        maxBodyLength: Infinity,
+        url: 'https://beez-sandbox.stellab.it/api/v1/asset', // Replace with your actual endpoint
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': apiKey,
+          'X-CSRF-Token': csrfToken,
+        },
+        data: JSON.stringify(body),
+      };
+  
+      return axios.request(config)
+        .then(response => {
+          const data = response.data;
+          return data;
+        })
+        .catch(e => {
+          throw new Error(e.message);
+        });
+    }
+
+  return { getMoney, getTransactions, getFreeMoney, getAssets, addMyAsset };
 }
 
 
