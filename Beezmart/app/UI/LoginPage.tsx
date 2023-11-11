@@ -44,8 +44,8 @@ const LoginPage = ({ navigation }: { navigation: any }): JSX.Element => {
           marginHorizontal: 66,
         }}
       >
-        <InputText label="Email" />
-        <InputText label="Password" />
+        <InputText label="Email" text={email} setText={setEmail} />
+        <InputText label="Password" text={password} setText={setPassword} />
       </View>
     </View>
   );

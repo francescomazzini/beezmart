@@ -1,8 +1,7 @@
 import * as React from "react";
 import { TextInput } from "react-native-paper";
 
-const InputText = ({ label }: { label: string }) => {
-  const [text, setText] = React.useState("");
+const InputText = ({ label, text, setText }: { label: string, text : string, setText: any }) => {
 
   return (
     <TextInput
@@ -19,7 +18,7 @@ const InputText = ({ label }: { label: string }) => {
       }}
       label={label}
       value={text}
-      onChangeText={(text) => setText(text)}
+      onChangeText={(t) => setText(t)}
     />
   );
 };
