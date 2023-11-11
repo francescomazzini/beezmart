@@ -1,6 +1,6 @@
 import { Image, Text, View } from "react-native";
 import { AuthContext } from "../core/useUser";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useWallet } from "../core/useWallet";
 import React from "react";
 import { Divider } from "react-native-paper";
@@ -11,12 +11,18 @@ const HomePage = ({navigation}:{navigation:any}) : JSX.Element => {
 
     const auth = useContext(AuthContext);
 
-    const {getMoney} = useWallet();
+    const {getMoney, getFreeMoney} = useWallet();
+
+    const [money, setMoney] = useState<string>("");
     
     useEffect(() => {
 
+        getFreeMoney(auth.user.access_token, auth.user.address)
+        .then(() => console.log("100 bucks added"))
+        .catch((err) => console.log(err.message))
+
         getMoney(auth.user.access_token)
-        .then((resp) =>console.log(resp))
+        .then((resp) => setMoney(resp.balance))
 
     }, []) 
 
@@ -49,7 +55,7 @@ const HomePage = ({navigation}:{navigation:any}) : JSX.Element => {
         }}
       >
         <Text>BZT</Text>
-        <Text style={{ fontWeight: "bold", fontSize: 25 }}>$$$$$$$$$.$$$</Text>
+        <Text style={{ fontWeight: "bold", fontSize: 25 }}> {money}</Text>
       </View>
 
       <View style={{ height: "70%" }}>

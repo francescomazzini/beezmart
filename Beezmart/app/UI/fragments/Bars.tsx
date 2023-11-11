@@ -17,7 +17,7 @@ const BottomBar = () => {
               headerShown: false, 
               tabBarShowLabel: false, 
           }}/>
-        <Tab.Screen name="Transfer2" component={TransferPage} options={{ 
+        <Tab.Screen name="Assets" component={AssetsPage} options={{ 
                 headerShown: false, 
                 tabBarShowLabel: false, 
             }}/>
