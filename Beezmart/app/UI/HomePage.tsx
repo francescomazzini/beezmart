@@ -12,9 +12,11 @@ const HomePage = ({navigation}:{navigation:any}) : JSX.Element => {
 
     const auth = useContext(AuthContext);
 
-    const {getMoney, getFreeMoney} = useWallet();
+    const {getMoney, getTransactions, getFreeMoney} = useWallet();
 
     const [money, setMoney] = useState<string>("");
+
+    const [transactions, setTransactions] = useState([]);
     
     useEffect(() => {
 
@@ -24,6 +26,11 @@ const HomePage = ({navigation}:{navigation:any}) : JSX.Element => {
 
         getMoney(auth.user.access_token)
         .then((resp) => setMoney(resp.balance))
+
+        getTransactions(auth.user.access_token)
+        .then((resp) => {
+          console.log(resp)
+          setTransactions(resp)})
 
     }, []) 
 
@@ -66,10 +73,12 @@ const HomePage = ({navigation}:{navigation:any}) : JSX.Element => {
         <Divider />
         <ScrollView style={{paddingLeft: 20, paddingRight: 20, paddingTop: 20}}>
 
-          <TransactionCard />
-          <TransactionCard />
-          <TransactionCard />
-          <TransactionCard />
+          {
+            transactions.map((trans) => (
+              <TransactionCard addressSender={trans.address_sender} addressReceiver={trans.address_receiver} money={trans.data}/>
+            ))
+          }
+
           <View style= {{height: 90}}>
 
           </View>

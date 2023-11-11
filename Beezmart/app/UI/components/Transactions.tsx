@@ -1,7 +1,7 @@
 import { Text, View } from "react-native"
 
 
-const TransactionCard = ({}) => {
+const TransactionCard = ({addressSender, addressReceiver, money}) => {
     
     
     return (
@@ -9,15 +9,15 @@ const TransactionCard = ({}) => {
             <View style={{width: "70%", paddingLeft: 15, paddingRight: 15, gap : 10}}>
                 <View>
                     <Text style = {{fontWeight: "bold", fontSize: 15, color: "#FBC011"}}>From: </Text>
-                    <Text>bzx77533bfe6bfba3284e845e34dcff2ab48642460012</Text>
+                    <Text> {addressSender} </Text>
                 </View>
                 <View>
                     <Text style = {{fontWeight: "bold", fontSize: 15, color: "#FBC011"}}>To: </Text>
-                    <Text>bzx77533bfe6bfba3284e845e34dcff2ab48642460012</Text>
+                    <Text> {addressReceiver} </Text>
                 </View>
             </View>
             <View style={{width: "30%", justifyContent: "center"}}>
-                <Text style={{fontSize: 20, fontWeight: "bold"}}>100 BZX</Text>
+                <Text style={{fontSize: 20, fontWeight: "bold"}}> {money} BZX</Text>
             </View> 
         </View>
     )

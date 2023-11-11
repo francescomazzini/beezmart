@@ -30,6 +30,29 @@ export function useWallet() {
         });
     }
 
+    async function getTransactions(bearerToken) {
+      const apiKey = `Token ${bearerToken}`; // Replace with your actual API key
+
+        const config = {
+          method: 'get',
+          maxBodyLength: Infinity,
+          url: 'https://beez-sandbox.stellab.it/api/v1/wallet/transactions', // Replace with your actual endpoint
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': apiKey,
+          },
+        };
+
+      return await axios.request(config)
+        .then(response => {
+          const data = response.data;
+          return data;
+        })
+        .catch(e => {
+          throw new Error(e.message);
+        });
+    }
+
 
     async function getFreeMoney (bearerToken, address_receiver) {
 
@@ -65,7 +88,7 @@ export function useWallet() {
         });
     }
 
-  return { getMoney, getFreeMoney };
+  return { getMoney, getTransactions, getFreeMoney };
 }
 
 
