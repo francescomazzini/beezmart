@@ -134,7 +134,7 @@ const TransferPage = ({ navigation }: { navigation: any }): JSX.Element => {
   };
 
   return (
-    <View style={{ height: "100%", backgroundColor: "#27241f" }}>
+    <View style={{ height: "100%", backgroundColor: "#27241f", width: "100%", alignItems: "center" }}>
       <View
         style={{
           height: "15%",
@@ -148,27 +148,27 @@ const TransferPage = ({ navigation }: { navigation: any }): JSX.Element => {
           Token Transfer
         </Text>
       </View>
-      <Divider />
-      <View style={{ height: "63%", flexDirection: "row", marginTop: 20 }}>
+      <Divider style = {{width:"100%", height: 1}} />
+      <View style={{ height: "53%", flexDirection: "row", marginTop: 20 }}>
         <View style={{ height: "100%" }}>
           <TouchableOpacity onPress={handleImagePress1}>
-            <Image style={{ width: 130, height: 130 }} source={imageSource} />
+            <Image style={{ width: 110, height: 110 }} source={imageSource} />
           </TouchableOpacity>
           <TouchableOpacity onPress={handleImagePress3}>
-            <Image style={{ width: 130, height: 130 }} source={imageSource3} />
+            <Image style={{ width: 110, height: 110 }} source={imageSource3} />
           </TouchableOpacity>
         </View>
         <Divider />
         <View style={{ height: "100%" }}>
           <TouchableOpacity onPress={handleImagePress2}>
-            <Image style={{ width: 130, height: 130 }} source={imageSource2} />
+            <Image style={{ width: 110, height: 110 }} source={imageSource2} />
           </TouchableOpacity>
           <TouchableOpacity onPress={handleImagePress4}>
-            <Image style={{ width: 130, height: 130 }} source={imageSource4} />
+            <Image style={{ width: 110, height: 110 }} source={imageSource4} />
           </TouchableOpacity>
           <TouchableOpacity>
             <Image
-              style={{ width: 130, height: 130 }}
+              style={{ width: 110, height: 110 }}
               source={require("./assets/images/Other.png")}
             />
           </TouchableOpacity>
@@ -176,19 +176,19 @@ const TransferPage = ({ navigation }: { navigation: any }): JSX.Element => {
         <Divider />
         <View style={{ height: "100%" }}>
           <TouchableOpacity onPress={handleImagePress5}>
-            <Image style={{ width: 130, height: 130 }} source={imageSource5} />
+            <Image style={{ width: 110, height: 110 }} source={imageSource5} />
           </TouchableOpacity>
           <TouchableOpacity onPress={handleImagePress6}>
-            <Image style={{ width: 130, height: 130 }} source={imageSource6} />
+            <Image style={{ width: 110, height: 110 }} source={imageSource6} />
           </TouchableOpacity>
         </View>
         <Divider />
       </View>
-      <View style={{ marginLeft: 20, marginRight: 20 }}>
-        <InputText label="Recieverer address" text="" setText={undefined} />
+      <View style={{ marginLeft: 20, marginRight: 20, gap : 30, width: "80%" }}>
+        <InputText label="Receiver address" text="" setText={undefined} />
         <InputButton onPress={undefined} label={"Transfer"} />
       </View>
-      <Text>{counter}</Text>
+      {/* <Text>{counter}</Text> */}
     </View>
   );
 };
