@@ -26,7 +26,7 @@ const AssetsPage = ({navigation}:{navigation:any}) : JSX.Element => {
         try {
         // Call the getAssets function
         const resp = await getAssets(auth.user.access_token);
-        console.log(resp);
+        // console.log(resp);
         setAssets(resp);
         } catch (error) {
         console.error('Error fetching assets:', error);

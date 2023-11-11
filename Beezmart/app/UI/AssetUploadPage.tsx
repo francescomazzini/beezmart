@@ -138,7 +138,7 @@ const AssetUploadPage = () : JSX.Element => {
                         console.log("  AAAAAAAAA" + JSON.stringify(response.data))
 
                         if(response && idNFC && amount && catalogized) {
-                            addMyAsset(auth.user.access_token, idNFC, amount, response.data)
+                            addMyAsset(auth.user.access_token, idNFC, amount, response.assets[0].base64)
                             .then(e => console.log(e))
                             .catch(e => console.log(e.message))
                         }
