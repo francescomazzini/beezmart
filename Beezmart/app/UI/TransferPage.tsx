@@ -8,6 +8,7 @@ import { Divider } from "react-native-paper";
 import { IconFoto, InputButton, InputText } from "./components/Inputs";
 
 const TransferPage = ({ navigation }: { navigation: any }): JSX.Element => {
+  const [counter, setCounter] = useState(0);
   const [imageSource, setImageSource] = useState(
     require("./assets/images/1.png")
   );
@@ -20,6 +21,11 @@ const TransferPage = ({ navigation }: { navigation: any }): JSX.Element => {
         ? require("./assets/images/1_Giallo-20.png")
         : require("./assets/images/1.png");
 
+    if (imageSource === require("./assets/images/1_Giallo-20.png")) {
+      setCounter((prevCounter) => prevCounter - 1);
+    } else {
+      setCounter((prevCounter) => prevCounter + 1);
+    }
     setImageSource(newImageSource);
   };
 
@@ -34,6 +40,12 @@ const TransferPage = ({ navigation }: { navigation: any }): JSX.Element => {
       imageSource2 === require("./assets/images/5.png")
         ? require("./assets/images/5_Giallo-21.png")
         : require("./assets/images/5.png");
+
+    if (imageSource2 === require("./assets/images/5_Giallo-21.png")) {
+      setCounter((prevCounter) => prevCounter - 5);
+    } else {
+      setCounter((prevCounter) => prevCounter + 5);
+    }
 
     setImageSource2(newImageSource2);
   };
@@ -50,6 +62,12 @@ const TransferPage = ({ navigation }: { navigation: any }): JSX.Element => {
         ? require("./assets/images/25_Giallo-23.png")
         : require("./assets/images/25.png");
 
+    if (imageSource3 === require("./assets/images/25_Giallo-23.png")) {
+      setCounter((prevCounter) => prevCounter - 25);
+    } else {
+      setCounter((prevCounter) => prevCounter + 25);
+    }
+
     setImageSource3(newImageSource3);
   };
 
@@ -65,6 +83,11 @@ const TransferPage = ({ navigation }: { navigation: any }): JSX.Element => {
         ? require("./assets/images/50_Giallo-24.png")
         : require("./assets/images/50.png");
 
+    if (imageSource4 === require("./assets/images/50_Giallo-24.png")) {
+      setCounter((prevCounter) => prevCounter - 50);
+    } else {
+      setCounter((prevCounter) => prevCounter + 50);
+    }
     setImageSource4(newImageSource4);
   };
 
@@ -80,6 +103,12 @@ const TransferPage = ({ navigation }: { navigation: any }): JSX.Element => {
         ? require("./assets/images/10_Giallo-22.png")
         : require("./assets/images/10.png");
 
+    if (imageSource5 === require("./assets/images/10_Giallo-22.png")) {
+      setCounter((prevCounter) => prevCounter - 10);
+    } else {
+      setCounter((prevCounter) => prevCounter + 10);
+    }
+
     setImageSource5(newImageSource5);
   };
 
@@ -94,6 +123,12 @@ const TransferPage = ({ navigation }: { navigation: any }): JSX.Element => {
       imageSource6 === require("./assets/images/100.png")
         ? require("./assets/images/100_Giallo-25.png")
         : require("./assets/images/100.png");
+
+    if (imageSource6 === require("./assets/images/100_Giallo-25.png")) {
+      setCounter((prevCounter) => prevCounter - 100);
+    } else {
+      setCounter((prevCounter) => prevCounter + 100);
+    }
 
     setImageSource6(newImageSource6);
   };
@@ -153,6 +188,7 @@ const TransferPage = ({ navigation }: { navigation: any }): JSX.Element => {
         <InputText label="Recieverer address" text="" setText={undefined} />
         <InputButton onPress={undefined} label={"Transfer"} />
       </View>
+      <Text>{counter}</Text>
     </View>
   );
 };
