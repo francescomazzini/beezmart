@@ -2,16 +2,25 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomePage from '../HomePage';
 import { View } from 'react-native';
 import { CentralTabButton, TabButton } from '../components/Buttons';
+import TransferPage from '../TransferPage';
 
 const Tab = createBottomTabNavigator();
 
 const BottomBar = () => {
     return (
       <Tab.Navigator initialRouteName='HomePage' tabBar={props => <MyTabBar {...props} />}>
+        <Tab.Screen name="Transfer" component={TransferPage} options={{ 
+                headerShown: false, 
+                tabBarShowLabel: false, 
+            }}/>
         <Tab.Screen name="Home" component={HomePage} options={{ 
               headerShown: false, 
               tabBarShowLabel: false, 
           }}/>
+        <Tab.Screen name="Transfer2" component={TransferPage} options={{ 
+                headerShown: false, 
+                tabBarShowLabel: false, 
+            }}/>
       </Tab.Navigator>
     );
   }
